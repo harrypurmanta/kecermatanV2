@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+<body>
+    <div class="min-h-screen relative md:flex">
+
+        <!-- mobile menu bar -->
+         <div class="bg-one text-slate-800 flex justify-between md:hidden">
+            <!-- logo -->
+            <a href="" class="block p-4 text-black font-bold">Bintang Timur Prestasi</a>
+            <!-- mobile menu button -->
+             <button class="mobile-menu-button p-4 focus:outline-none focus:bg-gray-200 hover:bg-orange-50 transition duration-300">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+                  </svg>
+                  
+             </button>
+         </div>
+
+        <!-- sidebar -->
+        <div class="sidebar bg-one text-two w-64 space-y-6 py-5 absolute inset-y-0 left-0 -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out">
+            <!-- logo -->
+            <a href="#" class="flex items-center py-6 px-3">
+                <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                    <path fill-rule="evenodd" d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z" clip-rule="evenodd" />
+                  </svg>
+                  <span class="text-lg font-bold">Bintang Timur Prestasi</span>
+            </a>
+            <nav>
+                    <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-three">
+                      <i class="bi bi-house-door-fill"></i>
+                      <span class="text-[15px] ml-4 text-two">Dashboard</span>
+                    </div>
+                    <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-three">
+                      <i class="bi bi-bookmark-fill"></i>
+                      <span class="text-[15px] ml-4 text-gray-800">Create Soal</span>
+                    </div>
+            
+                    <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer ">
+                      <i class="bi bi-chat-left-text-fill"></i>
+                      <div class="flex justify-between w-full items-center" onclick="dropDown()">
+                        <span class="text-[15px] ml-4 text-gray-800">Soal</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                          <i class="bi bi-chevron-down"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class=" leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
+                      <h1 class="cursor-pointer p-2 hover:bg-three rounded-md mt-1">Huruf</h1>
+                      <h1 class="cursor-pointer p-2 hover:bg-three rounded-md mt-1">Angka</h1>
+                      <h1 class="cursor-pointer p-2 hover:bg-three rounded-md mt-1">Simbol</h1>
+                      <h1 class="cursor-pointer p-2 hover:bg-three rounded-md mt-1">Huruf Angka</h1>
+                      <h1 class="cursor-pointer p-2 hover:bg-three rounded-md mt-1">Angka Simbol</h1>
+                      <h1 class="cursor-pointer p-2 hover:bg-three rounded-md mt-1">Huruf Simbol</h1>
+                    </div>
+
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-three">
+                      <i class="bi bi-box-arrow-in-right"></i>
+                      <span class="text-[15px] ml-4 text-two">Riwayat</span>
+                    </div>
+
+                    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-three">
+                      <i class="bi bi-box-arrow-in-right"></i>
+                      <span class="text-[15px] ml-4 text-two">Logout</span>
+                    </div>
+            </nav>
+        </div>
+    
+    
+    <!-- content -->
+     <div class="flex-1 p-3 font-bold text-xl border">
+        <!-- <h1 class="mt-4 md:mt-8 mb-8 font-bold text-two">Create Soal</h1> -->
+        <div class="bg-three p-3 mb-8 rounded-md transition-opacity">
+          <h2 class="font-bold text-two">Form Soal</h2>
+        </div>
+
+        <!-- FORM START -->
+        <div class="bg-three mt-2 rounded-md">
+          <form action="#" class="p-4 md:p-5">
+            <div class="grid gap-4 mb-4 grid-cols-2">
+                <div class="col-span-2 sm:col-span-1">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 1</label>
+    
+                    <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 2</label>
+    
+                    <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+                </div>
+
+                <div class="col-span-2 sm:col-span-1">
+                  <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 3</label>
+  
+                  <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+              </div>
+
+              <div class="col-span-2 sm:col-span-1">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 4</label>
+
+                <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+            </div>
+
+            <div class="col-span-2 sm:col-span-1">
+              <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 5</label>
+
+              <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+          </div>
+
+          <div class="col-span-2 sm:col-span-1">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 5</label>
+
+            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+        </div>
+
+        <div class="col-span-2 sm:col-span-1">
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 7</label>
+
+          <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+      </div>
+
+      <div class="col-span-2 sm:col-span-1">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 8</label>
+
+        <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+    </div>
+
+    <div class="col-span-2 sm:col-span-1">
+      <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 9</label>
+
+      <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Soal" required="">
+  </div>
+  <div class="col-span-2 sm:col-span-1">
+      <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soal 10</label>
+
+      <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama" required="">
+  </div>
+
+  <!-- BUTTON -->
+  <div class="flex space-x-2">
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+    
+    <button type="submit" class="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Kerjakan</button>
+  </div>
+  </div>
+  
+    </div>
+
+    <script>
+ // button humberger
+        const btn = document.querySelector(".mobile-menu-button");
+        const sidebar = document.querySelector(".sidebar");
+
+        btn.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+    })
+
+        // dropdown
+        function dropDown() {
+            document.querySelector('#submenu').classList.toggle('hidden')
+            document.querySelector('#arrow').classList.toggle('rotate-0')
+        }
+        dropDown()
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# CI4 (di dalam folder kecermatan)
+kecermatan/vendor/
+kecermatan/writable/*
+!kecermatan/writable/.gitkeep
+
+kecermatan/.env
+
+kecermatan/public/uploads/*
+!kecermatan/public/uploads/.gitkeep
+
+# OS & Editor
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temp
+*.log
+*.tmp
