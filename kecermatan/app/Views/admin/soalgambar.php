@@ -49,13 +49,15 @@
 
                         <button
                             type="button"
-                            onclick="<?= ($key->clue != null ? 'updatesoal('.$key->kolom_id.')' : 'simpansoal('.$key->kolom_id.')') ?>"
+                            id="btn_kolom_<?= $key->kolom_id ?>"
+                            onclick="simpansoal(<?= $key->kolom_id ?>)"
                             class="whitespace-nowrap text-white bg-blue-700 hover:bg-blue-800
-                                  focus:ring-4 focus:outline-none focus:ring-blue-300
-                                  font-medium rounded-lg text-sm px-4 py-2.5
-                                  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            <?= ($key->clue != null ? 'Update' : 'Simpan') ?>
+                                focus:ring-4 focus:outline-none focus:ring-blue-300
+                                font-medium rounded-lg text-sm px-4 py-2.5
+                                dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Simpan
                         </button>
+
                     </div>
                 </div>
                 <?php } ?>
@@ -88,22 +90,32 @@
                     $("#loader-wrapper").css('display','block');
                 },
                 success: function(data) {
-                    
                     $("#loader-wrapper").css('display','none');
+
                     for (let i = 1; i <= 10; i++) {
                         $("#soal_gambar_" + i).html("");
                         $("#kolom" + i + "_lama").val("");
+
+                        $("#btn_kolom_" + i)
+                            .text("Simpan")
+                            .attr("onclick", "simpansoal(" + i + ")");
                     }
 
                     if (!data || data.length === 0) return;
 
                     data.forEach(function(item) {
-
                         let kolom = item.kolom_id;
                         let clue  = item.clue;
 
-                        // simpan ke hidden lama
+                        if (!clue) return; // safety
+
+                        // simpan ke hidden
                         $("#kolom" + kolom + "_lama").val(clue);
+
+                        // ubah tombol jadi UPDATE
+                        $("#btn_kolom_" + kolom)
+                            .text("Update")
+                            .attr("onclick", "updatesoal(" + kolom + ")");
 
                         let images = clue.split("|");
                         let html = "";

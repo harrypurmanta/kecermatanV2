@@ -21,8 +21,11 @@ class Soal extends BaseController
         if ($this->session->get("user_nm") == "") {
 			return view('login');
 		} 
+
         $sk_group_id = $this->request->getPost('sk_group_id');
         $group_id = $this->request->getPost('group_id');
+
+        $this->session->set("sk_group_id_sess", $sk_group_id);
 
         $res = $this->soalmodel->getsoalbyskgroup($sk_group_id, $group_id)->getResult();
         
@@ -54,7 +57,7 @@ class Soal extends BaseController
         $user_group = $this->request->getPost('user_group');
         $group_id = $this->request->getPost('group_id');
 
-        // $this->session->set("sk_group_id_sess", $sk_group_id);
+        $this->session->set("sk_group_id_sess", $sk_group_id);
 
         $soal_nm = [];  
         $allowedMime = ['image/png', 'image/jpg', 'image/jpeg'];
