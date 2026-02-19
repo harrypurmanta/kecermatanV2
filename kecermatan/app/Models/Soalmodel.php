@@ -80,7 +80,7 @@ class Soalmodel extends Model
                         ->get();
     }
 
-    public function getSoal($group_id)
+    public function getSoal($group_id, $sk_group_id = null)
     {
         return $this->db->table('kolom_soal b')
                         ->select('
@@ -91,7 +91,7 @@ class Soalmodel extends Model
                         ')
                         ->join(
                             'soal a',
-                            'a.kolom_id = b.kolom_id AND a.group_id = '.$this->db->escape($group_id),
+                            'a.kolom_id = b.kolom_id AND a.group_id = '.$this->db->escape($group_id).' AND a.sk_group_id = '.$this->db->escape($sk_group_id),
                             'left'
                         )
                         ->groupBy('b.kolom_id, a.clue, a.sk_group_id')

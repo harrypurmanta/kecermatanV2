@@ -241,7 +241,7 @@ class Menu extends BaseController
             if ($this->session->get("user_group") == "siswa") {
 				return redirect('home');
 			} else if ($this->session->get("user_group") == "owner") {
-                $ressoal = $this->soalmodel->getSoal(8)->getResult();
+                $ressoal = $this->soalmodel->getSoal(8, $this->session->get("sk_group_id_sess"))->getResult();
                 // echo json_encode($ressoal);exit;
                 if (count($ressoal)>0) {
                     $soal = $ressoal;
@@ -254,6 +254,7 @@ class Menu extends BaseController
                     "soal" => $soal,
                     "session" => $this->session
                 ];
+
                 return view('admin/soalgambar',$data);
             } else {
 				return redirect('admin/dashboard');
