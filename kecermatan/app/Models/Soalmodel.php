@@ -80,8 +80,11 @@ class Soalmodel extends Model
                         ->get();
     }
 
-    public function getSoal($group_id, $sk_group_id = 1)
+    public function getSoal($group_id, $sk_group_id)
     {
+        if ($sk_group_id == 0) {
+            $sk_group_id = 1;
+        }
         return $this->db->table('kolom_soal b')
                         ->select('
                             b.kolom_id,
